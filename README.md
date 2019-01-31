@@ -2,7 +2,10 @@
 Solution for hard test 
 
 
-the covr function is applyied to Fuzzr package and results for type = {'all','vignettes','tests','examples','none'} are shown in text files. 
+1. the covr function is applyied to Fuzzr package and results for type = {'all','vignettes','tests','examples','none'} are shown in text files. 
 
 
-printing zero_coverage() value for each case will give the lines not runned.
+2. printing zero_coverage() value for each case will give the lines not runned.
+
+
+3. pdfs' shows the report of each case.

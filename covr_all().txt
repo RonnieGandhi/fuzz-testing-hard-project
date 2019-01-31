@@ -1,0 +1,239 @@
+> library("covr")
+> library("usethis")
+> 
+>
+> 
+> cov_all <- function(path = "."){
++     cov <- package_coverage(path = ".", type = 'all')
++     as.data.frame(cov)
++     rep_all <- report(cov)
++     print(cov, group = "function")
++     zero_coverage(cov)
++     return(cov)
++ }
+>
+> 
+> cov_all_fuzzr <- cov_all()
+fuzzr Coverage: 96.82%
+p_fuzz_function: 84.44%
+as.data.frame.fuzz_results: 100.00%
+fuzz_asserts: 100.00%
+fuzz_call: 100.00%
+fuzz_function: 100.00%
+fuzz_value: 100.00%
+is_named: 100.00%
+is_named_l: 100.00%
+is_named_ll: 100.00%
+named_cross_n: 100.00%
+parse_fuzz_result_concat: 100.00%
+search_results: 100.00%
+test_all: 100.00%
+test_char: 100.00%
+test_date: 100.00%
+test_dbl: 100.00%
+test_df: 100.00%
+test_fctr: 100.00%
+test_int: 100.00%
+test_lgl: 100.00%
+test_null: 100.00%
+test_raw: 100.00%
+try_fuzz: 100.00%
+> as.data.frame(cov_all_fuzzr)
+         filename                  functions first_line first_byte last_line last_byte
+1  R/evaluators.R              fuzz_function         43          3        43        41
+2  R/evaluators.R              fuzz_function         44          3        44        51
+3  R/evaluators.R              fuzz_function         45          3        45        44
+4  R/evaluators.R              fuzz_function         50          3        50        67
+5  R/evaluators.R              fuzz_function         51          3        51        19
+6  R/evaluators.R              fuzz_function         52          3        52        50
+7  R/evaluators.R              fuzz_function         55          3        55        77
+8  R/evaluators.R              fuzz_function         58          7        58        16
+9  R/evaluators.R              fuzz_function         59          5        61        46
+10 R/evaluators.R              fuzz_function         66          3        68        85
+11 R/evaluators.R              fuzz_function         70          3        70        84
+12 R/evaluators.R            p_fuzz_function         87          3        87        41
+13 R/evaluators.R            p_fuzz_function         88          7        88        36
+14 R/evaluators.R            p_fuzz_function         89          5        89        40
+15 R/evaluators.R            p_fuzz_function         91          5        91        37
+16 R/evaluators.R            p_fuzz_function         94          7        94        16
+17 R/evaluators.R            p_fuzz_function         95          5        95        65
+18 R/evaluators.R            p_fuzz_function         98          3        98        17
+19 R/evaluators.R            p_fuzz_function        101          3       109         4
+20 R/evaluators.R            p_fuzz_function        102          5       108         6
+21 R/evaluators.R            p_fuzz_function        103         11       103        22
+22 R/evaluators.R            p_fuzz_function        104          9       104        13
+23 R/evaluators.R            p_fuzz_function        106          9       106        11
+24 R/evaluators.R            p_fuzz_function        112          3       112        61
+25 R/evaluators.R            p_fuzz_function        113          7       113        25
+26 R/evaluators.R            p_fuzz_function        114          5       114       183
+27 R/evaluators.R            p_fuzz_function        115          9       115        14
+28 R/evaluators.R            p_fuzz_function        116          7       116        18
+29 R/evaluators.R            p_fuzz_function        120          3       120        32
+30 R/evaluators.R            p_fuzz_function        123          3       129         6
+31 R/evaluators.R            p_fuzz_function        124         11       124        41
+32 R/evaluators.R            p_fuzz_function        125          9       125        12
+33 R/evaluators.R            p_fuzz_function        127          9       127         9
+34 R/evaluators.R            p_fuzz_function        132          7       132        14
+35 R/evaluators.R            p_fuzz_function        133          5       135        59
+36 R/evaluators.R            p_fuzz_function        136          5       136        14
+37 R/evaluators.R            p_fuzz_function        140          3       157         6
+38 R/evaluators.R            p_fuzz_function        142         11       142        22
+39 R/evaluators.R            p_fuzz_function        142         25       142        33
+40 R/evaluators.R            p_fuzz_function        145          7       145        63
+41 R/evaluators.R            p_fuzz_function        148          7       148        64
+42 R/evaluators.R            p_fuzz_function        153          7       154        61
+43 R/evaluators.R            p_fuzz_function        155          7       155        37
+44 R/evaluators.R            p_fuzz_function        156          7       156         9
+45 R/evaluators.R            p_fuzz_function        159          3       159        39
+46 R/evaluators.R               fuzz_asserts        173          3       175        34
+47 R/evaluators.R                is_named_ll        180          3       180        50
+48 R/evaluators.R                is_named_ll        181          3       181        78
+49 R/evaluators.R                 is_named_l        186          3       186        26
+50 R/evaluators.R                   is_named        195          3       195        16
+51 R/evaluators.R                   is_named        196          3       196        30
+52 R/evaluators.R              named_cross_n        207          3       207        36
+53 R/evaluators.R              named_cross_n        209          3       209        54
+54 R/evaluators.R              named_cross_n        212          3       219         4
+55 R/evaluators.R              named_cross_n        213          5       218         6
+56 R/evaluators.R              named_cross_n        214          7       217         7
+57 R/evaluators.R                   try_fuzz        227          3       227        47
+58 R/evaluators.R                   try_fuzz        228          3       228        18
+59 R/evaluators.R                   try_fuzz        229          3       229        16
+60 R/evaluators.R                   try_fuzz        230          3       230        18
+61 R/evaluators.R                   try_fuzz        231          3       231        16
+62 R/evaluators.R                   try_fuzz        233          3       236         3
+63 R/evaluators.R                   try_fuzz        234          5       234        49
+64 R/evaluators.R                   try_fuzz        235          5       235        34
+65 R/evaluators.R                   try_fuzz        238          3       241         3
+66 R/evaluators.R                   try_fuzz        239          5       239        49
+67 R/evaluators.R                   try_fuzz        240          5       240        34
+68 R/evaluators.R                   try_fuzz        243          3       246         3
+69 R/evaluators.R                   try_fuzz        244          5       244        45
+70 R/evaluators.R                   try_fuzz        245          5       245        16
+71 R/evaluators.R                   try_fuzz        256          3       261        24
+72 R/evaluators.R                   try_fuzz        257          5       261         5
+73 R/evaluators.R                   try_fuzz        263          7       263        25
+74 R/evaluators.R                   try_fuzz        264          5       264        18
+75 R/evaluators.R                   try_fuzz        267          3       274         3
+76     R/inputs.R                   test_all         10          3        11        39
+77     R/inputs.R                  test_char         26          3        35         3
+78     R/inputs.R                   test_int         48          3        55         3
+79     R/inputs.R                   test_dbl         68          3        75         3
+80     R/inputs.R                   test_lgl         88          3        95         3
+81     R/inputs.R                  test_fctr        109          3       117         3
+82     R/inputs.R                  test_date        129          3       135         3
+83     R/inputs.R                   test_raw        145          3       149         3
+84     R/inputs.R                    test_df        161          3       161        27
+85     R/inputs.R                    test_df        162          3       162        33
+86     R/inputs.R                    test_df        163          3       163        33
+87     R/inputs.R                    test_df        164          3       164        32
+88     R/inputs.R                    test_df        166          3       172         3
+89     R/inputs.R                  test_null        180          3       182         3
+90    R/outputs.R as.data.frame.fuzz_results         24          3        24        63
+   first_column last_column first_parsed last_parsed value
+1             3          41           45          45    15
+2             3          51           46          46    12
+3             3          44           47          47    12
+4             3          67           52          52     9
+5             3          19           53          53     9
+6             3          50           54          54     9
+7             3          77           57          57     9
+8             7          16           58          58     9
+9             5          46           59          61     8
+10            3          85           68          70     7
+11            3          84           72          72     7
+12            3          41           89          89    21
+13            7          36           88          88    18
+14            5          40           91          91    11
+15            5          37           93          93     7
+16            7          16           94          94    18
+17            5          65           95          95    16
+18            3          17          100         100    18
+19            3           4          103         111    13
+20            5           6          104         110    27
+21           11          22          103         103   616
+22            9          13          106         106    12
+23            9          11          108         108   604
+24            3          61          114         114    13
+25            7          25          113         113    13
+26            5         183          116         116     1
+27            9          14          115         115     0
+28            7          18          116         116     0
+29            3          32          122         122    12
+30            3           6          125         131    12
+31           11          41          124         124 30510
+32            9          12          127         127   203
+33            9           9          129         129 30307
+34            7          14          132         132    12
+35            5          59          135         137     0
+36            5          14          138         138     0
+37            3           6          142         159    12
+38           11          22          142         142  5208
+39           25          33          142         142     0
+40            7          63          147         147  5208
+41            7          64          150         150  5208
+42            7          61          155         156  5208
+43            7          37          157         157  5208
+44            7           9          158         158  5208
+45            3          39          161         161    12
+46            3          34          175         177    36
+47            3          50          182         182    18
+48            3          78          183         183    16
+49            3          26          188         188    21
+50            3          16          197         197    77
+51            3          30          198         198    77
+52            3          36          209         209    12
+53            3          54          211         211    12
+54            3           4          214         221    12
+55            5           6          215         220  5208
+56            7           7          216         219 15255
+57            3          47          229         229  5208
+58            3          18          230         230  5208
+59            3          16          231         231  5208
+60            3          18          232         232  5208
+61            3          16          233         233  5208
+62            3           3          235         238  5208
+63            5          49          236         236    92
+64            5          34          237         237    92
+65            3           3          240         243  5208
+66            5          49          241         241   132
+67            5          34          242         242   132
+68            3           3          245         248  5208
+69            5          45          246         246  5018
+70            5          16          247         247  5018
+71            3          24          258         263  5208
+72            5           5          259         263  5208
+73            7          25          263         263  5208
+74            5          18          266         266  5162
+75            3           3          269         276  5208
+76            3          39          297         298    15
+77            3           3          313         322    21
+78            3           3          335         342    17
+79            3           3          355         362    18
+80            3           3          375         382    17
+81            3           3          396         404    17
+82            3           3          416         422    18
+83            3           3          432         436    17
+84            3          27          448         448    18
+85            3          33          449         449    18
+86            3          33          450         450    18
+87            3          32          451         451    18
+88            3           3          453         459    18
+89            3           3          467         469    17
+90            3          63          511         511     8
+ [ reached 'max' / getOption("max.print") -- omitted 30 rows ]
+> report(cov_all_fuzzr)
+>
+>
+>
+> zero_cov <- zero_coverage(cov_all_fuzzr)
+> print(zero_cov)
+          filename       functions line value
+115 R/evaluators.R p_fuzz_function  115     0
+117 R/evaluators.R p_fuzz_function  116     0
+133 R/evaluators.R p_fuzz_function  133     0
+135 R/evaluators.R p_fuzz_function  134     0
+137 R/evaluators.R p_fuzz_function  135     0
+139 R/evaluators.R p_fuzz_function  136     0
+142 R/evaluators.R p_fuzz_function  142     0
+> 

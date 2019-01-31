@@ -38,6 +38,8 @@ test_lgl: 100.00%
 test_null: 100.00%
 test_raw: 100.00%
 try_fuzz: 100.00%
+>
+>
 > as.data.frame(cov_all_fuzzr)
          filename                  functions first_line first_byte last_line last_byte
 1  R/evaluators.R              fuzz_function         43          3        43        41
